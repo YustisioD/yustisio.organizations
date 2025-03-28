@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yustisio's Organizations</title>
+    <style>
+       @media (max-width: 750px) {
+    .container {
+        flex-direction: column;
+        margin: 0 10px;
+        padding: 10px;
+        align-items: center; /* Pastikan menu dan deskripsi sejajar tengah */
+        gap: 10px; /* Mengurangi jarak antar elemen */
+    }
+
+    .menu {
+        width: 90%; /* Pastikan lebar menu sama dengan deskripsi */
+        max-height: none;
+        margin-bottom: 10px; /* Mengurangi jarak dengan deskripsi */
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .description {
+        width: 90%; /* Pastikan lebar deskripsi sama dengan menu */
+        max-width: 800px; /* Maksimal lebar */
+        height: auto;
+        padding: 15px; /* Mengurangi padding agar lebih kompak */
+        font-size: 16px;
+        overflow-y: auto;
+        text-align: justify;
+        margin-left: 0; /* Hapus margin kiri agar sejajar dengan menu */
+    }
+
+    .description-content {
+        font-size: 14px;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    figure img {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .menu-item {
+        font-size: 13px;
+        text-align: center;
+    }
+}
+
+@media (min-width: 1200px) {
+    .description {
+        font-size: 20px; /* Ukuran teks lebih besar untuk laptop */
+    }
+
+    .menu-item {
+        font-size: 15px;
+    }
+
+}
+    
+    body {
+        font-family: "Times New Roman", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #787276;
+        color: white;
+    }
+    
+    .header {
+        background-color: #3E424B;
+        color: rgb(255, 255, 255);
+        text-align: center;
+        padding: 20px;
+        font-size: 24px;
+        font-weight: bold;
+    }
+    
+    .container {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        margin: 0 40px;
+        align-items: flex-start;
+        gap: 20px; /* Tambahkan jarak antara menu dan deskripsi */
+    }
+    
+    .menu {
+        width: 200px;
+        background-color: #3E424B;
+        padding: 10px;
+        border-radius: 8px;
+        max-height: 750px;
+        margin-right: 20px; /* Tambahkan jarak dari deskripsi */
+    }
+    
+    .menu-item {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+        border: 1px solid #222021;
+        background-color: #808588;
+        cursor: pointer;
+        text-align: left;
+        color:#ffffff;
+    }
+    
+    .menu-item:hover {
+        background-color: #0F1A2B;
+    }
+    
+    .description {
+        position: relative;
+        flex: 1;
+        padding: 20px;
+        border: 2px solid #787276;
+        height: calc(90vh - 80px);
+        border-radius: 8px;
+        text-align: justify;
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        flex-direction: column;
+        max-height: 800px;
+        margin-left: 20px;
+        overflow: hidden;
+    }
+    
+    /* Overlay transparan 70% */
+    .description::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7); /* 70% gelap */
+        border-radius: 8px;
+        z-index: 1;
+    }
+    
+    /* Pastikan teks tetap di atas overlay */
+    .description-content {
+        position: relative;
+        z-index: 2;
+    }
+    
+    
+    .description-content {
+        position: relative;
+        z-index: 2;
+        overflow-y: auto;
+        max-height: 100%;
+        padding-right: 10px;
+    }
+    
+    figure {
+        text-align: center;
+        margin: 20px 0;
+    }
+    
+    figure img {
+        width: 100%;
+        max-width: 500px;
+        border-radius: 8px;
+    }
+    
+    figcaption {
+        font-size: 14px;
+        color: #ddd;
+        margin-top: 5px;
+        font-style: italic;
+    }
+    </style>
+</head>
+<body>
+    <div class="header">
+        Yustisio's Organizations
+    </div>
+
+    <div class="container">
+        <div class="menu">
+            <button class="menu-item" onclick="showDescription('HMGI')">HMGI</button>
+            <button class="menu-item" onclick="showDescription('HAGI')">HAGI SC UPN</button>
+            <button class="menu-item" onclick="showDescription('AAPG')">AAPG UPN SC</button>
+            <button class="menu-item" onclick="showDescription('HAMSA')">HAMSA UPN</button>
+            <button class="menu-item" onclick="showDescription('AME')">23 AME BAND UPNVY</button>
+            <button class="menu-item" onclick="showDescription('Musik')">Musik Smansaba</button>
+            <button class="menu-item" onclick="showDescription('BAYA')">PASKABAYA</button>
+            <button class="menu-item" onclick="showDescription('BARA')">PASKABARA</button>
+
+
+        </div>
+
+        <div class="description" id="description">
+            <div class="description-content">
+                <p>Click on a menu item to view the description here.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const descriptions = {
+            'BARA': {
+                text: [
+                    '<p>Paskabara was my first organization that involved management. Initially, I joined Paskabara because my mother forced me to be active in school activities. During my time in Paskabara, I gained many valuable experiences that shaped my character and discipline. In addition to learning about discipline, I was also taught teamwork, leadership, and how to overcome challenges in high-pressure situations. These experiences not only honed my physical skills but also strengthened my mental resilience, making me tougher and more confident. In Paskabara, I also met many friends who shared the same spirit, supporting one another to achieve common goals. Although I initially joined Paskabara due to my mothers insistence, over time, I realized how important this experience was in shaping me into a better person.</p>',
+                    '<p>From Paskabara, I began to get acquainted with the military world, as the activities were very similar, such as marching, basic leadership training, and so on. There were weekly training sessions that included learning Paskibra-related materials and marching practice. During that time, I participated in several competitions, such as the Gelora PBB Competition, Muhammadiyah Slawi PBB Competition, and a regional-level competition representing Tegal Regency, as well as Joint Training, and many more.</p>'
+                ],
+                images: [
+                    { src: 'paskabara (1).jpg', caption: 'Latihan Dasar Kepemimpinan Gabungan 2016'},
+                    { src: 'paskabara (2).jpg', caption: 'Tim Lomba PBB Gelora 2016'},
+                    { src: 'paskabara (3).jpg', caption: 'Tim Lomba SMP Muhammadiyah 2016'},
+                    { src: 'paskabara (4).jpg', caption: 'Tim Upacara 17 Agustus 2016'},
+                    { src: 'paskabara5.jpg', caption: 'Tim Upacara 17 Agustus 2017'},
+                    { src: 'paskabara6.jpg', caption: 'Serah Terima Jabatan 2017'}
+                ],
+                background: 'logopaskabara.jpg',
+                link: 'https://www.instagram.com/paskibraspensawi?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='
+            },
+            'BAYA': {
+                text: [
+                    '<p>I intended to continue the extracurricular activities I was involved in during middle school, so I joined Paskabaya as a step forward for my high school organization. I gained a lot of experiences in Paskabaya, ranging from Paskibra activities, organizational skills, to close family-like relationships. I started my journey with a joint training session for the entire regency, then there were routine trainings every Monday and class meetings every Thursday, which we did every week. We were used to solving problems together through discussions.</p>',
+                    '<p>By the time I was in the second year of high school, I was motivated to become a member of the Paskibraka (Flag-raising Troops), which pushed me to undergo an extreme diet, losing 86kg to 63kg in just 1.5 months! That was a truly proud achievement for myself. I ran every morning and practiced every day to achieve it. In the end, I proved that my effort was not in vain because I became a member of the Paskibraka for Tegal Regency in 2019.</p>',
+                    '<p>After that, I was elected as the Chairman of Paskibra SMAN 1 Balapulang for the ninth batch, serving a one-year term. There were many challenges I had to face during my time in office. I have the principle that there should be something different from the previous period that I create when I lead. I initiated calling in coaches for competitions, although the results weren’t optimal. I also initiated creating Paskibra uniforms as a form of branding. However, due to the pandemic, the order was delayed from 2020 until 2023. So, even though I graduated from high school in 2021, I continued to manage the uniforms until 2023 because I felt it was my responsibility.</p>',
+                    '<p>All the experiences I gained in Paskibra have shaped my never-give-up mentality, and I kept pushing forward until the goal was accomplished. I am very grateful to have been a part of Paskabaya Indonesia and to have contributed to the organizations continuity.</p>',
+                ],
+                images: [
+                    { src: 'paskabaya (1).jpg', caption: 'Tim Lomba & demo ekstrakulikuler PPDB Smansaba'},
+                    { src: 'paskabaya (3).jpg', caption: 'Tim Upacara hari guru 2019'},
+                    { src: 'paskabaya (4).jpg', caption: 'Panitia Buka Bersama Paskibra 2019'},
+                    { src: 'paskabaya (5).jpg', caption: 'Serah Terima Jabatan 2021'}
+                ],
+                background: 'logopaskabaya.jpg',
+                link: 'https://www.instagram.com/paskabayaindonesia?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='
+            },
+            'Musik': {
+                text: [
+                    '<p>In addition to Paskabaya, I also served as the vice chairperson of the music extracurricular at SMAN 1 Balapulang. From the beginning, I wanted to develop my talent in music, which I had learned since middle school. Joining the music extracurricular gave me the opportunity to delve deeper into the world of music, both in theory and practice. I learned a lot about teamwork in a music group, how each member plays a crucial role in creating harmony, and how to manage time and resources for rehearsals and performances.</p>',
+                    '<p>During my time in the music extracurricular, I participated in various performances, both within and outside the school. This experience greatly enhanced my skills, not only in music but also in building self-confidence when performing in front of an audience. I also had the opportunity to organize several music events, which broadened my knowledge in event management and organizing committees.</p>',
+                    '<p>Being the vice chairperson of the music extracurricular provided me with valuable lessons in leadership, team management, and effective communication. I learned how to give clear directions and ensure that every team member could work together well to achieve our shared goals. All these experiences have helped me grow and strengthen my skills in both music and organization.</p>',
+                ],
+                images: [
+                    { src: 'musik (1).jpg', caption: 'Tim band pertama'},
+                    { src: 'musik (2).jpg', caption: 'Pengurus Harian Band Smansaba'},
+                    { src: 'musik (4).jpg', caption: 'Latihan rutin mingguan di Ruang Musik'}
+                ],
+                background: 'logomusik.jpg',
+                link : 'https://www.instagram.com/musik_smansaba?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='
+            },
+            'HAGI': {
+                text: [
+                    '<p>During my time in college, I decided to join an organization that was gaining momentum in Indonesia, HAGI. I became a member of HAGI in 2022, holding the position of staff in the Professionalism Improvement Division for the 2022/2023 and 2023/2024 periods. Later, I was elected as the President of HAGI SC UPN for the full 2024 term.</p>',
+                    '<p>As President, I strived to create something different that had never been done before. I introduced a new timeline called the expansion timeline, which included a series of interconnected programs, starting from the preparation of geomagnetic classes, followed by geomagnetic data acquisition, geomagnetic data processing, and the processing of outputs in the form of paper posters. In addition to introducing new initiatives, I also maintained existing programs that were still relevant.</p>',
+                    '<p>HAGI SC UPN has provided me with opportunities to grow further in the academic world. HAGI has allowed me to gain a broader understanding of geophysics, both theoretically and by meeting professionals in the field. I received a lot of positive feedback from HAGI, and most importantly, I learned to become a better version of myself.</p>'
+            ],
+                images: [
+                    {src: 'Hagi.jpg', caption: 'Presiden HAGI SC UPN Periode 2024'},
+                    {src: 'hagi (2).jpg', caption: 'Kabinet HAGI SC UPN Periode 2024'},
+                    {src: 'hagi m.jpg', caption: 'Makrab HAGI 2024'},
+                    {src: 'hagi8.jpg', caption: 'Company Visit ke Kilang Pertamina Cilacap'},
+                    {src: 'hagi (1).jpg', caption: 'Divisi Professionalism Improvement Periode 2022/2023'}
+                ],
+                background: 'logohagi.jpg',
+                link: 'https://www.instagram.com/hagisc.upn?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='
+            },
+            'AAPG': {
+                text: [
+                    '<p>During my time at university, I also joined the AAPG (American Association of Petroleum Geologists) UPN SC. I became a member of AAPG UPN SC in 2022 and was active until 2024, where I served as a staff member in the Fieldtrip Division. My involvement in AAPG allowed me to further explore the field of geophysics, particularly in the oil and gas industry.</p>',
+                    '<p>Being part of AAPG UPN SC has allowed me to connect with fellow students who share similar interests, as well as professionals in the petroleum geology field. I gained invaluable insights into the exploration, development, and production of petroleum resources. Through attending seminars, workshops, and conferences, I deepened my knowledge and understanding of the oil and gas industry, learning about the latest trends, technologies, and challenges in the field.</p>',
+                    '<p>In my role as a staff member in the Fieldtrip Division, I helped organize and coordinate field trips that provided hands-on learning experiences for students. These field trips were essential in connecting theoretical knowledge with real-world applications, helping us understand the practical aspects of petroleum geology.</p>',
+                    '<p>AAPG UPN SC provided me with numerous opportunities to develop my professional skills, broaden my network, and learn from experts in the petroleum geology field. I am grateful for the experiences I have gained and the connections I have made through AAPG, which have helped me grow both academically and professionally.</p>'
+                ],
+                images: [
+                    { src: 'aapg.jpg', caption: 'Kabinet AAPG UPN SC Periode 2022/2023' },
+                    { src: 'aapg (2).jpg', caption: 'Makrab AAPG 2022' },
+                    { src: 'aapg (3).jpg', caption: 'Kegiatan Preparation Class Petrologi 2023'},
+                    { src: 'aapg (4).JPG', caption: 'Fieldtrip Sedimen & Geologi Struktur 2022'}
+                ],
+                background: 'logoaapg.jpg',
+                link: 'https://www.instagram.com/aapgupnsc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='
+            },
+            'HMGI': {
+                text: [
+                    '<p>In March 2024, I joined HMGI (Himpunan Mahasiswa Geofisika Indonesia) and have been an active member until March 2025. I serve as a staff member in the Academic Division, where I am responsible for managing various programs that promote geophysics and engage students. One of the key programs I handle is the Geoscience Trivia, which I organize and manage through the HMGI Instagram account. This program aims to educate and raise awareness among students and followers about geoscience concepts in an engaging and interactive way.</p>',
+                    '<p>Being a part of HMGI has provided me with valuable opportunities to expand my knowledge in geophysics and to connect with other students across Indonesia who share similar academic interests. I have gained insights into the latest developments in geophysics and participated in discussions and activities that enhance my understanding of the field.</p>',
+                    '<p>Through managing the Geoscience Trivia program, I have also honed my skills in social media content creation, as I am responsible for curating posts and engaging with followers. This experience has improved my ability to communicate complex scientific concepts in an accessible and engaging manner.</p>',
+                    '<p>HMGI has allowed me to grow both academically and professionally, providing me with a platform to contribute to the geophysics community while developing essential skills in communication, teamwork, and leadership. I look forward to continuing my involvement and contributing to the organization throughout my membership.</p>'
+                ],
+                images: [
+                    {src: 'hmgi1.png'}
+                ],
+                background: 'logohmgi.jpg',
+                link: 'https://www.instagram.com/hmgindonesia?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='
+            },
+            'AME': {
+                text: [
+                    '<p>In 2021, I joined the 23 AME Band UPN as a talent, where I had the opportunity to showcase my musical abilities and contribute to the band’s performances. Being part of the band allowed me to improve my musical skills while collaborating with other talented individuals who shared the same passion for music.</p>',
+                    '<p>In 2023, I transitioned into a more organizational role and became a staff member in the Logistics Division. In this role, I was responsible for preparing and inventorying the equipment needed for each performance. I ensured that all instruments and technical equipment were properly documented and ready for use, which played a crucial part in ensuring smooth and successful performances.</p>',
+                    '<p>Being involved in 23 AME Band UPN has not only enhanced my musical talents but also taught me valuable skills in logistics, coordination, and teamwork. It gave me the chance to learn how important organization and preparation are in ensuring the success of events, and I’m grateful for the experience of balancing both performance and behind-the-scenes responsibilities.</p>'
+                ],
+                images: [
+                    {src: 'ame1.png'}
+                ],
+                background: 'logoame.jpg',
+                link: 'https://www.instagram.com/band.upnyk?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='
+            },
+            'HAMSA': {
+                text: [
+                    '<p>In 2022, I joined HAMSA (Himpunan Mahasiswa Muslim Teknik Geofisika UPN) and served as a staff member in the PSDI (Pengembangan Sumber Daya Insan) Division. This role allowed me to focus on the development of human resources within the organization, particularly in organizing programs and activities that support the personal and professional growth of students.</p>',
+                    '<p>In 2023, I was promoted to the position of Vice Chairperson of the PSDI Division. In this leadership role, I worked closely with my team to improve and expand our programs, focusing on enhancing the skills, knowledge, and well-being of members. We organized workshops, seminars, and other activities aimed at providing valuable development opportunities for students, both academically and personally.</p>',
+                    '<p>Being part of HAMSA has provided me with a deeper understanding of the importance of community and collaboration in personal growth. I’ve gained valuable leadership experience and developed strong organizational, communication, and problem-solving skills, which have been essential in carrying out my duties within the PSDI Division. I am grateful for the opportunity to contribute to the growth of the organization and its members.</p>'
+                ],
+                images: [
+                    {src: 'hamsa1.png'}
+                ],
+                background: 'logohamsa.jpg',
+                link: 'https://www.instagram.com/kerabat.hamsa?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='
+            }
+        };
+        function showDescription(org) {
+    const data = descriptions[org];
+    if (!data) return;
+
+    const descriptionElement = document.getElementById('description');
+    descriptionElement.style.backgroundImage = `url(${data.background})`;
+
+    let contentHTML = '<div class="description-content">';
+
+    // Menampilkan semua teks terlebih dahulu
+    if (data.text && data.text.length > 0) {
+        data.text.forEach((paragraph) => {
+            contentHTML += paragraph;
+        });
+    } else {
+        contentHTML += '<p>No description available.</p>';
+    }
+
+    // Menampilkan semua gambar setelah teks
+    if (data.images && data.images.length > 0) {
+        data.images.forEach((image) => {
+            contentHTML += `
+                <figure>
+                    <img src="${image.src}" alt="${image.caption}">
+                    <figcaption>${image.caption}</figcaption>
+                </figure>
+            `;
+        });
+    }
+
+    // Menambahkan tombol "Go to Link" jika ada link
+    if (data.link) {
+        contentHTML += `
+            <div style="text-align: center; margin-top: 20px;">
+                <a href="${data.link}" target="_blank" style="display: inline-block; padding: 10px 20px; background-color: #F77F00; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">
+                    Go to Link
+                </a>
+            </div>
+        `;
+    }
+
+    contentHTML += '</div>';
+    descriptionElement.innerHTML = contentHTML;
+}
+
+    </script>
+</body>
+</html>
